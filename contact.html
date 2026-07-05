@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Technostics Group</title>
+  <meta name="description" content="Contact Technostics Group through the Formspree contact form for service inquiries and discovery calls.">
+  <meta name="theme-color" content="#05060a">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="index.html">
+          <span class="brand-mark"><img src="assets/favicon.png" alt="Technostics Group logo"></span>
+          <span class="brand-copy">
+            <span class="brand-name">Technostics Group</span>
+            <span class="brand-tag">Cyber defense with clarity</span>
+          </span>
+        </a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html" data-nav-link>Home</a>
+          <a href="services.html" data-nav-link>Services</a>
+          <a href="free-scan.html" data-nav-link>Free Scan</a>
+          <a href="about.html" data-nav-link>About</a>
+          <a href="contact.html" data-nav-link>Contact</a>
+        </nav>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+      </div>
+      <div class="container mobile-panel" id="mobile-panel" data-mobile-panel>
+        <nav class="nav" aria-label="Mobile primary">
+          <a href="index.html" data-nav-link>Home</a>
+          <a href="services.html" data-nav-link>Services</a>
+          <a href="free-scan.html" data-nav-link>Free Scan</a>
+          <a href="about.html" data-nav-link>About</a>
+          <a href="contact.html" data-nav-link>Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="content">
+      <section class="page-hero">
+        <div class="container page-hero-grid">
+          <div>
+            <span class="eyebrow reveal" data-reveal>Contact</span>
+            <h1 class="page-title reveal" data-reveal="2">Start with the service that fits your current risk.</h1>
+            <p class="page-hero-copy reveal" data-reveal="3">
+              Use this form to request a discovery call, book a service tier, or ask about a custom scope. Keep your message
+              focused on your current risks, team size, and timeline.
+            </p>
+          </div>
+          <div class="page-hero-card reveal" data-reveal="2">
+            <img src="assets/reference-1.png" alt="Neon reference art">
+            <div class="overlay"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container contact-grid">
+          <div class="contact-stack">
+            <div class="info-box reveal">
+              <div class="info-label">Best fit</div>
+              <div class="info-value">Security health checks, business assessments, monthly support, and custom enterprise scopes.</div>
+            </div>
+            <div class="info-box reveal">
+              <div class="info-label">Delivery model</div>
+              <div class="info-value">Remote-first for most work. Site-specific planning is handled through the discovery process.</div>
+            </div>
+            <div class="info-box reveal">
+              <div class="info-label">Response window</div>
+              <div class="info-value">Typical first response within 1 business day.</div>
+            </div>
+            <div class="info-box reveal">
+              <div class="info-label">What to include</div>
+              <div class="info-value">Your company size, current setup, timeline, and which service tier you think fits best.</div>
+            </div>
+          </div>
+
+          <div class="panel reveal">
+            <span class="eyebrow">Form</span>
+              <h2 style="margin-top:16px;">Tell us what you need.</h2>
+            <form class="form" action="https://formspree.io/f/mpqgrydv" method="POST">
+              <input type="hidden" name="subject" value="Technostics Group inquiry">
+              <input type="hidden" name="page" value="contact">
+              <div class="field-row">
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@company.com">
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="company">Company</label>
+                  <input id="company" name="company" type="text" autocomplete="organization" placeholder="Company / team name">
+                </div>
+                <div class="field">
+                  <label for="service">Service</label>
+                  <select id="service" name="service" data-service-select>
+                    <option value="">Choose a service</option>
+                    <option value="security-health-check">Security Health Check</option>
+                    <option value="business-security-assessment">Business Security Assessment</option>
+                    <option value="monthly-security-support">Monthly Security Support</option>
+                    <option value="custom-enterprise">Custom / Enterprise</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                  <label for="message">Project details</label>
+                <textarea id="message" name="message" required placeholder="Tell us what you want to secure, how many users or devices are involved, and what timeline you're working with."></textarea>
+              </div>
+              <div class="form-actions">
+                <button class="button button-primary" type="submit">Send Inquiry</button>
+                <span class="compact-note">The form submits directly to Formspree using the provided endpoint.</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="section-head reveal">
+            <div>
+              <span class="eyebrow">Quick paths</span>
+              <h2>Boxes you can use to choose the right start.</h2>
+            </div>
+            <p class="section-lead">Pick the path that matches your current need and get a clear recommendation quickly.</p>
+          </div>
+
+          <div class="cards cols-3">
+            <article class="card reveal">
+              <h3 class="card-title">Need a quick baseline?</h3>
+              <p class="card-copy">Start with the Security Health Check if you want a fast, affordable, remote-first security review.</p>
+            </article>
+            <article class="card reveal">
+              <h3 class="card-title">Need a deeper plan?</h3>
+              <p class="card-copy">Use the Business Security Assessment when the network is larger or when you need a clear remediation roadmap.</p>
+            </article>
+            <article class="card reveal">
+              <h3 class="card-title">Need ongoing support?</h3>
+              <p class="card-copy">Monthly Security Support is the fit when you want regular review, monitoring guidance, and consistency.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <div>
+          <div class="brand-name">Technostics Group</div>
+          <div class="subtle-text">A direct path to a cleaner security posture.</div>
+        </div>
+        <div class="footer-links">
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="terms-and-conditions.html">Terms & Conditions</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
