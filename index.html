@@ -2,23 +2,37 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C899ZDG3Q3"></script>
-    <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-
-       gtag('config', 'G-C899ZDG3Q3');
-   </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C899ZDG3Q3');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Technostics Group | Cybersecurity Services</title>
   <meta name="description" content="Technostics Group delivers router hardening, network assessments, security health checks, and monthly security support with a clean, remote-first approach.">
-  <meta name="theme-color" content="#05060a">
+  <meta name="theme-color" content="#FDFAF4">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Custom cursor -->
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot"  aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <!-- Decorative glow nodes -->
+  <div class="glow-node glow-node-teal"    style="width:500px;height:500px;top:-80px;left:-100px;"  aria-hidden="true"></div>
+  <div class="glow-node glow-node-lavender" style="width:420px;height:420px;top:40px;right:-80px;"   aria-hidden="true"></div>
+
   <a class="skip-link" href="#content">Skip to content</a>
+
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
@@ -30,37 +44,41 @@
           </span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">☰</button>
       </div>
       <div class="container mobile-panel" id="mobile-panel" data-mobile-panel>
         <nav class="nav" aria-label="Mobile primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="content">
+
+      <!-- ── Hero ──────────────────────────────────────────── -->
       <section class="hero">
         <div class="container hero-grid">
           <div>
             <span class="eyebrow reveal" data-reveal>Remote-first cybersecurity for real business risk</span>
-            <h1 class="reveal" data-reveal="2">Secure the <span class="accent">network layer</span> before it becomes a problem.</h1>
+            <h1 class="reveal" data-reveal="2">
+              Secure the <span class="accent">network layer</span> before it becomes a problem.
+            </h1>
             <p class="hero-copy reveal" data-reveal="3">
               Technostics Group helps businesses strengthen network security with router hardening, structured assessments,
               and ongoing support. The focus is simple: clear findings, precise reporting, and practical next steps.
             </p>
             <div class="hero-actions reveal" data-reveal="3">
-              <a class="button button-primary" href="services.html">Explore Services</a>
+              <a class="button button-primary"   href="services.html">Explore Services</a>
               <a class="button button-secondary" href="contact.html">Start a Conversation</a>
             </div>
             <div class="hero-meta reveal" data-reveal="3">
@@ -68,7 +86,7 @@
               <span class="pill">Pan-India remote delivery</span>
               <span class="pill">Starting at INR 4,999</span>
             </div>
-            <div class="stat-row reveal" data-reveal="3">
+            <div class="stat-row reveal" data-reveal="4">
               <div class="metric">
                 <div class="metric-value">3 tiers</div>
                 <div class="metric-label">clear offers instead of a bloated menu</div>
@@ -88,51 +106,47 @@
             </div>
           </div>
 
-          <div class="hero-visual reveal" data-reveal="2" data-hero-visual>
-            <div class="visual-stack" data-visual-stack>
-              <div class="visual-floating floating-1"></div>
-              <div class="visual-floating floating-2"></div>
-              <div class="visual-floating floating-3"></div>
-              <div class="visual-card visual-main">
-                <div class="frame"></div>
-                <div class="visual-logo">
-                  <img src="assets/favicon.png" alt="Technostics Group logo">
-                </div>
-                <div class="visual-chip">
-                  <div>
-                    <strong>Technostics Group</strong>
-                    <span>Router hardening • Network assessment • SOC support</span>
-                  </div>
-                  <div class="orb" aria-hidden="true"></div>
-                </div>
+          <!-- 3D Interactive Logo -->
+          <div class="logo3d-scene reveal" data-reveal="2" id="logo3d-scene" aria-label="Technostics Group 3D logo">
+            <div class="logo3d-stage" id="logo3d-stage">
+              <div class="logo3d-glow-ring"></div>
+              <div class="logo3d-img-wrap">
+                <img src="assets/favicon.png" alt="Technostics Group" class="logo3d-img" id="logo3d-img">
               </div>
             </div>
+            <div class="logo3d-caption">
+              <strong>Technostics Group</strong>
+              <span>Router hardening · Network assessment · SOC support</span>
+            </div>
             <div class="hero-scrolldown" aria-hidden="true">
-              <span>Scroll</span>
               <span class="line"></span>
             </div>
           </div>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Free Scan CTA ──────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="panel reveal">
+            <div class="glow-node glow-node-teal" style="width:280px;height:280px;top:-60px;right:-40px;opacity:0.6;" aria-hidden="true"></div>
             <div class="section-head">
               <div>
                 <span class="eyebrow">Free Scan</span>
                 <h2>Start with a quick security check before you commit to a full engagement.</h2>
               </div>
               <div class="hero-actions">
-                <a class="button button-primary" href="free-scan.html">Open Free Scan</a>
+                <a class="button button-primary"   href="free-scan.html">Open Free Scan</a>
                 <a class="button button-secondary" href="contact.html">Talk to Us</a>
               </div>
             </div>
-            <p class="card-copy" style="max-width:72ch; margin-top:10px;">
+            <p class="card-copy" style="max-width:72ch;margin-top:12px;">
               Our Free Scan is designed for businesses that want a fast, practical look at their router setup, device posture,
               and common security gaps without a long sales process.
             </p>
-            <div class="cards cols-3" style="margin-top:16px;">
+            <div class="cards cols-3" style="margin-top:20px;">
               <article class="info-box">
                 <div class="info-label">What it covers</div>
                 <div class="info-value">Router hardening basics, weak exposure points, and simple onboarding guidance.</div>
@@ -150,6 +164,9 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Core Services ──────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -179,16 +196,19 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── How We Work ────────────────────────────────────── -->
       <section class="section">
         <div class="container section-split">
-          <div class="panel reveal">
+          <div class="panel reveal reveal-left">
             <span class="eyebrow">How we work</span>
             <h2 style="margin-top:16px;">Built for straightforward delivery.</h2>
-            <p class="card-copy">
+            <p class="card-copy" style="margin-top:12px;">
               Based on the business notes in your documents, the brand should feel calm, premium, and technically credible.
               That means fewer promises, better structure, and a visible path from assessment to action.
             </p>
-            <div class="timeline" style="margin-top:20px;">
+            <div class="timeline" style="margin-top:24px;">
               <div class="timeline-item">
                 <div class="timeline-key">Assess</div>
                 <div class="timeline-value">We inspect devices, router settings, and network exposure so the security picture becomes concrete.</div>
@@ -204,9 +224,9 @@
             </div>
           </div>
 
-          <div class="glass-banner reveal">
+          <div class="glass-banner reveal reveal-right">
             <span class="eyebrow">Best fit</span>
-            <h3 style="margin:16px 0 12px;">Small teams, growing businesses, and security-conscious founders.</h3>
+            <h3 style="margin:16px 0 12px;font-family:'Cormorant Garamond',serif;">Small teams, growing businesses, and security-conscious founders.</h3>
             <p class="card-copy">
               The offering is positioned for freelancers, small offices, and growing companies that want a clear starting
               point and a premium-feeling security partner without unnecessary complexity.
@@ -221,6 +241,9 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Why Us ──────────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -244,6 +267,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -255,7 +279,7 @@
         <div class="footer-links">
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-and-conditions.html">Terms & Conditions</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </footer>

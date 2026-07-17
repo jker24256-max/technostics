@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C899ZDG3Q3"></script>
-    <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-
-       gtag('config', 'G-C899ZDG3Q3');
-   </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C899ZDG3Q3');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About | Technostics Group</title>
   <meta name="description" content="About Technostics Group, a Kolkata-founded cybersecurity company built around practical, remote-first delivery.">
-  <meta name="theme-color" content="#05060a">
+  <meta name="theme-color" content="#060810">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="glow-node glow-node-teal"    style="width:400px;height:400px;top:-60px;left:-80px;"  aria-hidden="true"></div>
+  <div class="glow-node glow-node-lavender" style="width:360px;height:360px;top:100px;right:-60px;" aria-hidden="true"></div>
+
   <a class="skip-link" href="#content">Skip to content</a>
+
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
@@ -30,53 +38,52 @@
           </span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">☰</button>
       </div>
       <div class="container mobile-panel" id="mobile-panel" data-mobile-panel>
         <nav class="nav" aria-label="Mobile primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="content">
+
+      <!-- ── Page Hero ──────────────────────────────────── -->
       <section class="page-hero">
-        <div class="container page-hero-grid">
-          <div>
-            <span class="eyebrow reveal" data-reveal>About</span>
-            <h1 class="page-title reveal" data-reveal="2">A focused company built for practical security work.</h1>
-            <p class="page-hero-copy reveal" data-reveal="3">
-              Technostics Group is a Kolkata-founded cybersecurity partner built around remote delivery, clear scope,
-              and practical security services that clients can trust.
-            </p>
-          </div>
-          <div class="page-hero-card reveal" data-reveal="2">
-            <img src="assets/reference-3.png" alt="Neon reference art">
-            <div class="overlay"></div>
-          </div>
+        <div class="container">
+          <span class="eyebrow reveal" data-reveal>About</span>
+          <h1 class="page-title reveal" data-reveal="2">A focused company built for practical security work.</h1>
+          <p class="page-hero-copy reveal" data-reveal="3">
+            Technostics Group is a Kolkata-founded cybersecurity partner built around remote delivery, clear scope,
+            and practical security services that clients can trust.
+          </p>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Positioning ────────────────────────────────── -->
       <section class="section">
         <div class="container section-split">
-          <div class="panel reveal">
+          <div class="panel reveal reveal-left">
             <span class="eyebrow">Positioning</span>
             <h2 style="margin-top:16px;">Kolkata-founded, remote-first, and scope-led.</h2>
-            <p class="card-copy">
+            <p class="card-copy" style="margin-top:12px;">
               We keep the company story grounded in delivery and practical results. That means honest scope, clear pricing,
               and security work that is easier to buy and easier to act on.
             </p>
-            <div class="timeline" style="margin-top:20px;">
+            <div class="timeline" style="margin-top:24px;">
               <div class="timeline-item">
                 <div class="timeline-key">Now</div>
                 <div class="timeline-value">Serve locally and remotely with small, clear engagements that are easy to understand and easy to buy.</div>
@@ -92,9 +99,9 @@
             </div>
           </div>
 
-          <div class="glass-banner reveal">
+          <div class="glass-banner reveal reveal-right">
             <span class="eyebrow">Operating principles</span>
-            <h3 style="margin:16px 0 12px;">Security with no performance theater.</h3>
+            <h3 style="margin:16px 0 12px;font-family:'Cormorant Garamond',serif;">Security with no performance theater.</h3>
             <ul class="list">
               <li>Use a small public service catalog with clear pricing.</li>
               <li>Lead with findings, evidence, and prioritization instead of vague promises.</li>
@@ -105,6 +112,9 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Who We Serve ────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -132,6 +142,9 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Roadmap ────────────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -154,6 +167,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -165,7 +179,7 @@
         <div class="footer-links">
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-and-conditions.html">Terms & Conditions</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </footer>

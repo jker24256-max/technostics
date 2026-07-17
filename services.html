@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C899ZDG3Q3"></script>
-    <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-
-       gtag('config', 'G-C899ZDG3Q3');
-   </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C899ZDG3Q3');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Services | Technostics Group</title>
   <meta name="description" content="Technostics Group service tiers for security health checks, business assessments, monthly support, and custom enterprise scopes.">
-  <meta name="theme-color" content="#05060a">
+  <meta name="theme-color" content="#060810">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="glow-node glow-node-teal"    style="width:420px;height:420px;top:-80px;right:-60px;" aria-hidden="true"></div>
+  <div class="glow-node glow-node-lavender" style="width:380px;height:380px;top:300px;left:-80px;"  aria-hidden="true"></div>
+
   <a class="skip-link" href="#content">Skip to content</a>
+
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
@@ -30,54 +38,55 @@
           </span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">☰</button>
       </div>
       <div class="container mobile-panel" id="mobile-panel" data-mobile-panel>
         <nav class="nav" aria-label="Mobile primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="content">
+
+      <!-- ── Page Hero ──────────────────────────────────── -->
       <section class="page-hero">
-        <div class="container page-hero-grid">
-          <div>
-            <span class="eyebrow reveal" data-reveal>Services</span>
-            <h1 class="page-title reveal" data-reveal="2">Security services that scale with your business.</h1>
-            <p class="page-hero-copy reveal" data-reveal="3">
-              Choose the service tier that matches your current security needs: a baseline health check, a deeper business
-              assessment, recurring monthly support, or a custom scope for more complex work.
-            </p>
-            <div class="hero-actions reveal" data-reveal="3">
-              <a class="button button-primary" href="contact.html?service=tier-1">Book Tier 1</a>
-              <a class="button button-secondary" href="contact.html?service=tier-2">Book Tier 2</a>
-            </div>
-          </div>
-          <div class="page-hero-card reveal" data-reveal="2">
-            <img src="assets/reference-2.png" alt="Neon reference art">
-            <div class="overlay"></div>
+        <div class="container">
+          <span class="eyebrow reveal" data-reveal>Services</span>
+          <h1 class="page-title reveal" data-reveal="2">Security services that scale with your business.</h1>
+          <p class="page-hero-copy reveal" data-reveal="3">
+            Choose the service tier that matches your current security needs: a baseline health check, a deeper business
+            assessment, recurring monthly support, or a custom scope for more complex work.
+          </p>
+          <div class="hero-actions reveal" data-reveal="3">
+            <a class="button button-primary"   href="contact.html?service=tier-1">Book Tier 1</a>
+            <a class="button button-secondary" href="contact.html?service=tier-2">Book Tier 2</a>
           </div>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Service Tiers ──────────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="service-grid">
+
+            <!-- Tier 1 -->
             <article class="card service-card reveal">
               <div>
                 <span class="eyebrow">Tier 1</span>
-                <h2 class="card-title" style="margin-top:14px;">Security Health Check</h2>
+                <h2 class="card-title" style="margin-top:16px;font-size:1.4rem;">Security Health Check</h2>
                 <p class="card-copy">Best for freelancers, home offices, and small teams. A concise, high-signal remote review.</p>
                 <ul class="list">
                   <li>Complete scan of devices on the network</li>
@@ -90,14 +99,15 @@
               <aside class="price-box">
                 <div class="price">INR 4,999</div>
                 <div class="price-note">Time required: 2 to 4 hours remote. Delivery in 48 hours from start.</div>
-                <a class="button button-primary" style="width:100%; margin-top:18px;" href="contact.html?service=tier-1">Book This Service</a>
+                <a class="button button-primary" style="width:100%;margin-top:20px;" href="contact.html?service=tier-1">Book This Service</a>
               </aside>
             </article>
 
+            <!-- Tier 2 -->
             <article class="card service-card reveal">
               <div>
                 <span class="eyebrow">Tier 2</span>
-                <h2 class="card-title" style="margin-top:14px;">Business Security Assessment</h2>
+                <h2 class="card-title" style="margin-top:16px;font-size:1.4rem;">Business Security Assessment</h2>
                 <p class="card-copy">Built for growing teams with real infrastructure and a need for deeper reporting.</p>
                 <ul class="list">
                   <li>Everything in the Health Check</li>
@@ -111,14 +121,15 @@
               <aside class="price-box">
                 <div class="price">INR 14,999</div>
                 <div class="price-note">Time required: 2 to 3 days remote. Delivery in 5 business days.</div>
-                <a class="button button-primary" style="width:100%; margin-top:18px;" href="contact.html?service=tier-2">Book This Service</a>
+                <a class="button button-primary" style="width:100%;margin-top:20px;" href="contact.html?service=tier-2">Book This Service</a>
               </aside>
             </article>
 
+            <!-- Tier 3 -->
             <article class="card service-card reveal">
               <div>
                 <span class="eyebrow">Tier 3</span>
-                <h2 class="card-title" style="margin-top:14px;">Monthly Security Support</h2>
+                <h2 class="card-title" style="margin-top:16px;font-size:1.4rem;">Monthly Security Support</h2>
                 <p class="card-copy">For businesses that want continuous protection without hiring a full security team.</p>
                 <ul class="list">
                   <li>Quarterly full network reassessment</li>
@@ -130,16 +141,17 @@
                 </ul>
               </div>
               <aside class="price-box">
-                <div class="price">INR 9,999<span style="font-size:1rem; color:var(--muted);"> / month</span></div>
+                <div class="price">INR 9,999<span style="font-size:1rem;color:var(--muted);"> / month</span></div>
                 <div class="price-note">Minimum 6 months. Paid quarterly at INR 29,997.</div>
-                <a class="button button-primary" style="width:100%; margin-top:18px;" href="contact.html?service=tier-3">Talk to Us</a>
+                <a class="button button-primary" style="width:100%;margin-top:20px;" href="contact.html?service=tier-3">Talk to Us</a>
               </aside>
             </article>
 
+            <!-- Custom -->
             <article class="card service-card reveal">
               <div>
                 <span class="eyebrow">Custom</span>
-                <h2 class="card-title" style="margin-top:14px;">Custom / Enterprise Scope</h2>
+                <h2 class="card-title" style="margin-top:16px;font-size:1.4rem;">Custom / Enterprise Scope</h2>
                 <p class="card-copy">For 50+ employee teams, regulated environments, or more complex network work.</p>
                 <ul class="list">
                   <li>New office secure network setup</li>
@@ -147,18 +159,22 @@
                   <li>Post-incident cleanup and hardening</li>
                   <li>Managed security operations center setup</li>
                 </ul>
-                <p class="compact-note">Starting at INR 49,999. Scope and price are fixed after the discovery call.</p>
+                <p class="compact-note" style="margin-top:14px;">Starting at INR 49,999. Scope and price are fixed after the discovery call.</p>
               </div>
               <aside class="price-box">
                 <div class="price">Custom</div>
                 <div class="price-note">Designed after discovery so the scope matches the business and the risk profile.</div>
-                <a class="button button-primary" style="width:100%; margin-top:18px;" href="contact.html?service=custom">Request a Discovery Call</a>
+                <a class="button button-primary" style="width:100%;margin-top:20px;" href="contact.html?service=custom">Request a Discovery Call</a>
               </aside>
             </article>
+
           </div>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Comparison Table ───────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -179,54 +195,27 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Network scan</td>
-                  <td>Included</td>
-                  <td>Included</td>
-                  <td>Quarterly</td>
-                </tr>
-                <tr>
-                  <td>Device mapping</td>
-                  <td>Basic</td>
-                  <td>Full</td>
-                  <td>Updated regularly</td>
-                </tr>
-                <tr>
-                  <td>Vulnerability scan</td>
-                  <td>Basic</td>
-                  <td>Deep</td>
-                  <td>Quarterly</td>
-                </tr>
-                <tr>
-                  <td>Firewall review</td>
-                  <td>No</td>
-                  <td>Yes</td>
-                  <td>Yes</td>
-                </tr>
-                <tr>
-                  <td>Report depth</td>
-                  <td>1 page</td>
-                  <td>10 to 15 pages</td>
-                  <td>Recurring roadmap</td>
-                </tr>
-                <tr>
-                  <td>Support</td>
-                  <td>30-minute walkthrough</td>
-                  <td>30 days email support</td>
-                  <td>Ongoing monthly support</td>
-                </tr>
+                <tr><td>Network scan</td>      <td>Included</td>             <td>Included</td>         <td>Quarterly</td></tr>
+                <tr><td>Device mapping</td>    <td>Basic</td>                <td>Full</td>             <td>Updated regularly</td></tr>
+                <tr><td>Vulnerability scan</td><td>Basic</td>                <td>Deep</td>             <td>Quarterly</td></tr>
+                <tr><td>Firewall review</td>   <td>No</td>                   <td>Yes</td>              <td>Yes</td></tr>
+                <tr><td>Report depth</td>      <td>1 page</td>               <td>10 to 15 pages</td>   <td>Recurring roadmap</td></tr>
+                <tr><td>Support</td>           <td>30-minute walkthrough</td><td>30 days email support</td><td>Ongoing monthly support</td></tr>
               </tbody>
             </table>
           </div>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Add-ons + Delivery ─────────────────────────── -->
       <section class="section">
         <div class="container section-split">
-          <div class="panel reveal">
+          <div class="panel reveal reveal-left">
             <span class="eyebrow">Optional</span>
             <h2 style="margin-top:16px;">Optional add-ons.</h2>
-            <p class="card-copy">
+            <p class="card-copy" style="margin-top:12px;">
               Choose these focused upgrades when you want to strengthen your protection without adding complexity to the main service tiers.
             </p>
             <ul class="list">
@@ -239,19 +228,20 @@
             </ul>
           </div>
 
-          <div class="glass-banner reveal">
+          <div class="glass-banner reveal reveal-right">
             <span class="eyebrow">Delivery style</span>
-            <h3 style="margin:16px 0 12px;">Remote, measured, and easy to follow.</h3>
+            <h3 style="margin:16px 0 12px;font-family:'Cormorant Garamond',serif;">Remote, measured, and easy to follow.</h3>
             <p class="card-copy">
               Work is delivered remotely wherever possible, with concise reports, prioritized next steps, and a simple service structure.
             </p>
-            <div class="hero-actions" style="margin-top:18px;">
-              <a class="button button-primary" href="contact.html?service=tier-2">Start Tier 2</a>
+            <div class="hero-actions" style="margin-top:20px;">
+              <a class="button button-primary"   href="contact.html?service=tier-2">Start Tier 2</a>
               <a class="button button-secondary" href="about.html">Read the Approach</a>
             </div>
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -263,7 +253,7 @@
         <div class="footer-links">
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-and-conditions.html">Terms & Conditions</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </footer>

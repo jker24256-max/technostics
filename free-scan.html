@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C899ZDG3Q3"></script>
-    <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-
-       gtag('config', 'G-C899ZDG3Q3');
-   </script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C899ZDG3Q3');
+  </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Free Scan | Technostics Group</title>
   <meta name="description" content="Start with a free security scan to understand router exposure, weak access points, and practical next steps.">
-  <meta name="theme-color" content="#05060a">
+  <meta name="theme-color" content="#060810">
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot"  aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="glow-node glow-node-teal"    style="width:440px;height:440px;top:-100px;left:-80px;" aria-hidden="true"></div>
+  <div class="glow-node glow-node-lavender" style="width:360px;height:360px;top:160px;right:-60px;" aria-hidden="true"></div>
+
   <a class="skip-link" href="#content">Skip to content</a>
+
   <div class="site-shell">
     <header class="site-header">
       <div class="container nav-wrap">
@@ -30,67 +38,74 @@
           </span>
         </a>
         <nav class="nav" aria-label="Primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">Menu</button>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="mobile-panel">☰</button>
       </div>
       <div class="container mobile-panel" id="mobile-panel" data-mobile-panel>
         <nav class="nav" aria-label="Mobile primary">
-          <a href="index.html" data-nav-link>Home</a>
+          <a href="index.html"    data-nav-link>Home</a>
           <a href="services.html" data-nav-link>Services</a>
           <a href="free-scan.html" data-nav-link>Free Scan</a>
-          <a href="about.html" data-nav-link>About</a>
+          <a href="about.html"   data-nav-link>About</a>
           <a href="contact.html" data-nav-link>Contact</a>
         </nav>
       </div>
     </header>
 
     <main id="content">
+
+      <!-- ── Page Hero ──────────────────────────────────── -->
       <section class="page-hero">
-        <div class="container page-hero-grid">
-          <div>
-            <span class="eyebrow reveal" data-reveal>Free Scan</span>
-            <h1 class="page-title reveal" data-reveal="2">Install the app, run the check, and get a clear view of your exposure.</h1>
-            <p class="page-hero-copy reveal" data-reveal="3">
-              The Free Scan is built for organizations that want a low-friction first step. It helps you understand common router and device risks without the commitment of a full engagement.
-            </p>
-            <div class="hero-actions reveal" data-reveal="3">
-              <a class="button button-primary" href="contact.html">Request the Scan</a>
-              <a class="button button-secondary" href="services.html">View Services</a>
-            </div>
-          </div>
-          <div class="page-hero-card reveal" data-reveal="2">
-            <img src="assets/reference-2.png" alt="Security application illustration">
-            <div class="overlay"></div>
+        <div class="container">
+          <span class="eyebrow reveal" data-reveal>Free Scan</span>
+          <h1 class="page-title reveal" data-reveal="2">Install the app, run the check, and get a clear view of your exposure.</h1>
+          <p class="page-hero-copy reveal" data-reveal="3">
+            The Free Scan is built for organizations that want a low-friction first step. It helps you understand common
+            router and device risks without the commitment of a full engagement.
+          </p>
+          <div class="hero-actions reveal" data-reveal="3">
+            <a class="button button-primary"   href="contact.html">Request the Scan</a>
+            <a class="button button-secondary" href="services.html">View Services</a>
           </div>
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Install Section ────────────────────────────── -->
       <section class="section">
         <div class="container section-split">
-          <div class="panel reveal">
+          <div class="panel reveal reveal-left">
             <span class="eyebrow">Install the app</span>
             <h2 style="margin-top:16px;">The Free Scan app is ready for a quick first inspection.</h2>
-            <p class="card-copy">
-              Download the lightweight app, install it on the device you want to evaluate, and follow the guided scan. The app keeps the process simple, practical, and focused on the most relevant security checks first.
+            <p class="card-copy" style="margin-top:12px;">
+              Download the lightweight app, install it on the device you want to evaluate, and follow the guided scan. The app keeps
+              the process simple, practical, and focused on the most relevant security checks first.
             </p>
-            <div class="hero-actions" style="margin-top:18px;">
-              <a class="button button-primary" href="assets/Technostics-Group-Free-Scan-Installer.exe" download="Technostics-Group-Free-Scan-Installer.exe">Install the App</a>
+            <div class="hero-actions" style="margin-top:22px;">
+              <a class="button button-primary" href="assets/Technostics-Group-Free-Scan-Installer.exe" download="Technostics-Group-Free-Scan-Installer.exe">
+                ↓ Install the App
+              </a>
               <a class="button button-secondary" href="services.html">See Full Services</a>
             </div>
-            <div class="info-box" style="margin-top:16px;">
+            <div class="info-box" style="margin-top:20px;">
               <div class="info-label">How it works</div>
-              <div class="info-value">1. Install the app on your Windows device. 2. Launch the scan and allow the requested permissions. 3. Review the results and receive practical recommendations.</div>
+              <div class="info-value">
+                1. Install the app on your Windows device.
+                2. Launch the scan and allow the requested permissions.
+                3. Review the results and receive practical recommendations.
+              </div>
             </div>
           </div>
 
-          <div class="glass-banner reveal">
+          <div class="glass-banner reveal reveal-right">
             <span class="eyebrow">What you get</span>
-            <h3 style="margin:16px 0 12px;">A clear scan that points to the next best action.</h3>
+            <h3 style="margin:16px 0 12px;font-family:'Syne',sans-serif;">A clear scan that points to the next best action.</h3>
             <ul class="list">
               <li>Basic router and network exposure checks</li>
               <li>Visibility into common weak settings</li>
@@ -101,6 +116,9 @@
         </div>
       </section>
 
+      <div class="section-divider"></div>
+
+      <!-- ── Why This Matters ───────────────────────────── -->
       <section class="section">
         <div class="container">
           <div class="section-head reveal">
@@ -127,6 +145,7 @@
           </div>
         </div>
       </section>
+
     </main>
 
     <footer class="footer">
@@ -138,7 +157,7 @@
         <div class="footer-links">
           <a href="contact.html">Contact</a>
           <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms-and-conditions.html">Terms & Conditions</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
         </div>
       </div>
     </footer>
