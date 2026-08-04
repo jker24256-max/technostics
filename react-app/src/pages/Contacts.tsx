@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Footer from "../components/Footer";
 import Reveal from "../components/Reveal";
+import { useSearchParams } from "react-router-dom";
 
 const INFO = [
   {
@@ -71,7 +72,15 @@ export default function Contact() {
   useEffect(() => {
     document.title = "Contact | Technostics Group";
   }, []);
-
+  const [searchParams] = useSearchParams();
+  const SERVICE_SLUG_MAP: Record<string, string> = {
+    "tier-1": "security-health-check",
+    "tier-2": "business-security-assessment",
+    "tier-3": "monthly-security-support",
+    custom: "custom-enterprise",
+  };
+  const preselectedService =
+    SERVICE_SLUG_MAP[searchParams.get("service") ?? ""] ?? "";
   return (
     <main>
       {/* Page hero */}
@@ -181,7 +190,12 @@ export default function Contact() {
                     <label htmlFor="service" className={labelClass}>
                       Service
                     </label>
-                    <select id="service" name="service" className={inputClass}>
+                    <select
+                      id="service"
+                      name="service"
+                      defaultValue={preselectedService}
+                      className={inputClass}
+                    >
                       <option value="">Choose a service</option>
                       {SERVICE_OPTIONS.map((opt) => (
                         <option key={opt.value} value={opt.value}>
