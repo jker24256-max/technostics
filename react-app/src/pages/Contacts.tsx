@@ -255,7 +255,13 @@ export default function Contact() {
         </div>
       </section>
 
-      <Footer title="A direct path to a cleaner security posture." />
+      <Footer
+        title="A direct path to a cleaner security posture."
+        links={[
+          { label: "Privacy Policy", path: "/privacy-policy" },
+          { label: "Terms & Conditions", path: "/terms-and-conditions" },
+        ]}
+      />
     </main>
   );
 }
