@@ -9,9 +9,10 @@
   /* Background & Surface */
   --color-bg: #fdfaf4;
   --color-bg-mid: #faf5e9;
-  --color-surface: rgba(255, 251, 242, 0.9);
-  --color-surface-strong: rgba(255, 252, 244, 0.98);
-  --color-surface-raised: rgba(255, 250, 238, 0.94);
+  --color-surface: rgba(255, 253, 247, 0.96);
+  --color-surface-strong: rgba(255, 255, 250, 1);
+  --color-surface-raised: rgba(255, 254, 248, 0.98);
+  --color-border: rgba(184, 134, 11, 0.25);
 
   /* Gold palette */
   --color-gold-pale: #fff3cc;
@@ -22,7 +23,7 @@
   --color-gold-muted: #c9a96e;
   --color-gold-dim: rgba(212, 168, 67, 0.12);
   --color-gold-glow-sm: rgba(212, 168, 67, 0.28);
-  --color-border: rgba(184, 134, 11, 0.18);
+  /* --color-border: rgba(184, 134, 11, 0.18); */
   --color-border-soft: rgba(212, 168, 67, 0.1);
 
   /* Text */
@@ -39,6 +40,8 @@
   --shadow-glow:
     0 0 40px rgba(212, 168, 67, 0.22), 0 0 80px rgba(212, 168, 67, 0.1);
   --shadow-glow-sm: 0 0 18px rgba(212, 168, 67, 0.4);
+  --shadow-glow-hover:
+    0 0 60px rgba(212, 168, 67, 0.18), 0 8px 32px rgba(139, 101, 8, 0.14);
 
   /* Radius */
   --radius-xl: 32px;
@@ -78,6 +81,8 @@
   --shadow-glow:
     0 0 40px rgba(224, 185, 78, 0.28), 0 0 80px rgba(224, 185, 78, 0.14);
   --shadow-glow-sm: 0 0 18px rgba(224, 185, 78, 0.45);
+  --shadow-glow-hover:
+    0 0 60px rgba(224, 185, 78, 0.22), 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 :root {
@@ -85,4 +90,27 @@
   --transition: 240ms var(--ease);
   --transition-slow: 480ms var(--ease);
   --container: min(1180px, calc(100vw - 32px));
+}
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.hero-glow {
+  background-image:
+    radial-gradient(
+      circle at 15% 20%,
+      var(--color-gold-pale) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 10%,
+      var(--color-gold-light) 0%,
+      transparent 40%
+    );
+  background-repeat: no-repeat;
+  opacity: 1;
 }
