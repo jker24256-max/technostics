@@ -7,11 +7,13 @@ import About from "./pages/About";
 import Contacts from "./pages/Contacts";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import ParticleCanvas from "./components/ParticleCanvas";
 
 function App() {
   return (
     <>
       <Navbar />
+      <ParticleCanvas />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
