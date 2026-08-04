@@ -1,11 +1,9 @@
 import Navbar from "./components/navbar";
-import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import FreeScan from "./pages/FreeScan";
 import About from "./pages/About";
-import { Contact } from "lucide-react";
 import Contacts from "./pages/Contacts";
 
 function App() {

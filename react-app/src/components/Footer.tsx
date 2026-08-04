@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 
-interface FooterProps{
-    title : string
-}
+type FooterLink = { label: string; path: string };
 
-export default function Footer({title = "A direct path to a cleaner security posture."} : FooterProps) {
+const DEFAULT_LINKS: FooterLink[] = [
+  { label: "Contact", path: "/contact" },
+  { label: "Privacy Policy", path: "/privacy-policy" },
+  { label: "Terms & Conditions", path: "/terms-and-conditions" },
+];
+
+export default function Footer({
+  title = "A direct path to a cleaner security posture.",
+  links = DEFAULT_LINKS,
+}: {
+  title?: string;
+  links?: FooterLink[];
+}) {
   return (
     <footer className="border-t border-border bg-bg-mid transition-colors">
       <div className="max-w-6xl mx-auto flex flex-col gap-4 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
@@ -13,8 +23,11 @@ export default function Footer({title = "A direct path to a cleaner security pos
           <div className="text-sm text-muted">{title}</div>
         </div>
         <div className="flex gap-6 text-sm text-muted">
-          <Link to="/privacy-policy" className="transition-colors hover:text-text">Privacy Policy</Link>
-          <Link to="/terms-and-conditions" className="transition-colors hover:text-text">Terms &amp; Conditions</Link>
+          {links.map((link) => (
+            <Link key={link.path} to={link.path} className="transition-colors hover:text-text">
+              {link.label}
+            </Link>
+          ))}
         </div>
       </div>
     </footer>
