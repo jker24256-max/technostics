@@ -1,0 +1,7 @@
+name = "your-app-name"
+compatibility_date = "2024-12-18"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
