@@ -7,7 +7,7 @@ import logo from "../assets/favicon.png";
 const HERO_PILLS = [
   "Kolkata-founded",
   "Pan-India remote delivery",
-  "Starting at INR 4,999",
+  "Starting at INR 2,999",
 ];
 
 const STATS = [

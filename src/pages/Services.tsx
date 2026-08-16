@@ -29,7 +29,7 @@ const TIERS: Tier[] = [
       "DNS privacy setup for safer browsing",
       "1-page summary report and 30-minute walkthrough",
     ],
-    price: "INR 4,999",
+    price: "INR 2,999",
     priceNote:
       "Time required: 2 to 4 hours remote. Delivery in 48 hours from start.",
     ctaLabel: "Book This Service",
@@ -48,9 +48,9 @@ const TIERS: Tier[] = [
       "VPN setup guidance and a 10 to 15 page remediation roadmap",
       "30 days of email support while fixes are implemented",
     ],
-    price: "INR 14,999",
+    price: "INR 6,999",
     priceNote:
-      "Time required: 2 to 3 days remote. Delivery in 5 business days.",
+      "Time required: 2 to 3 days remote. Delivery in 5-7 business days.",
     ctaLabel: "Book This Service",
     ctaHref: "/contact?service=tier-2",
   },
@@ -67,9 +67,9 @@ const TIERS: Tier[] = [
       "2 hours of priority remote support every month",
       "Annual security roadmap for the next cycle of improvements",
     ],
-    price: "INR 9,999",
+    price: "INR 1,999",
     priceSuffix: "/ month",
-    priceNote: "Minimum 6 months. Paid quarterly at INR 29,997.",
+    priceNote: "Minimum 6 months. Paid yearly at INR 19,999.",
     ctaLabel: "Talk to Us",
     ctaHref: "/contact?service=tier-3",
   },
@@ -133,12 +133,12 @@ const COMPARISON = [
 ];
 
 const ADD_ONS = [
-  "Router hardening: INR 4,999",
-  "VPN setup: INR 4,999",
+  "Router hardening: INR 2,999",
+  "VPN setup: INR 2,999",
   "Wi-Fi security review: INR 2,499",
-  "Phishing awareness guidance: INR 3,999",
+  "Phishing awareness guidance: INR 2,999",
   "Basic threat review: INR 2,499",
-  "Emergency incident response: INR 2,500/hour for existing clients only",
+  "Emergency incident response: INR 1,999/hour for existing clients only",
 ];
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
