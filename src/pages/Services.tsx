@@ -23,15 +23,14 @@ const TIERS: Tier[] = [
     description:
       "Best for freelancers, home offices, and small teams. A concise, high-signal remote review.",
     features: [
-      "Complete scan of devices on the network",
-      "Wi-Fi encryption and password strength check",
-      "Router hardening: default passwords changed, unnecessary services disabled",
-      "DNS privacy setup for safer browsing",
-      "1-page summary report and 30-minute walkthrough",
+      "Remote-only external security check.",
+      "We scan what's visible from outside your nerwork - exposed data, weak email security, outdated software, leaked employee credentials - and hand youa plain-language report ranking what to fix first.",
+      "No on-site visit.",
+      "2-3 day turnaround",
     ],
     price: "INR 2,999",
     priceNote:
-      "Time required: 2 to 4 hours remote. Delivery in 48 hours from start.",
+      "Delivery in 48-72 hours from start.",
     ctaLabel: "Book This Service",
     ctaHref: "/contact?service=tier-1",
   },
@@ -41,16 +40,13 @@ const TIERS: Tier[] = [
     description:
       "Built for growing teams with real infrastructure and a need for deeper reporting.",
     features: [
-      "Everything in the Health Check",
-      "Full network mapping for devices, printers, cameras, phones, and unknown connections",
-      "Deep vulnerability scan with prioritized risk ratings",
-      "Firewall rule review and IoT device risk checks",
-      "VPN setup guidance and a 10 to 15 page remediation roadmap",
-      "30 days of email support while fixes are implemented",
+      "Everything in Starter, plus an on-site internal assessment - we check your office Wi-Fi, connected devices, employee access controls, and physical security gaps.",
+      "We then sit with your team and fix the top critical issues live, on the spot, instead of handing just a report.",
+      "5-7 day turnaround",
     ],
     price: "INR 6,999",
     priceNote:
-      "Time required: 2 to 3 days remote. Delivery in 5-7 business days.",
+      "Delivery in 5-7 business days.",
     ctaLabel: "Book This Service",
     ctaHref: "/contact?service=tier-2",
   },
@@ -60,12 +56,8 @@ const TIERS: Tier[] = [
     description:
       "For businesses that want continuous protection without hiring a full security team.",
     features: [
-      "Quarterly full network reassessment",
-      "Monthly patch and update guidance",
-      "Monthly security health checks for new devices and password drift",
-      "Basic log monitoring and anomaly review",
-      "2 hours of priority remote support every month",
-      "Annual security roadmap for the next cycle of improvements",
+      "Ongoing coverage after an assessment.",
+      "Quarterly re-scans to catch new exposures, checks that earlier fixes haven't quietly slipped, on-call support if something looks suspicious (phishing email, ransomware scare), and a basic incident response plan on file so you're not improvising if something goes wrong.",
     ],
     price: "INR 1,999",
     priceSuffix: "/ month",
