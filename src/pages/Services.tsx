@@ -24,7 +24,7 @@ const TIERS: Tier[] = [
       "Best for freelancers, home offices, and small teams. A concise, high-signal remote review.",
     features: [
       "Remote-only external security check.",
-      "We scan what's visible from outside your nerwork - exposed data, weak email security, outdated software, leaked employee credentials - and hand youa plain-language report ranking what to fix first.",
+      "We scan what's visible from outside your nerwork - exposed data, weak email security, outdated software, leaked employee credentials - and hand you a plain-language report ranking what to fix first.",
       "No on-site visit.",
       "2-3 day turnaround",
     ],
