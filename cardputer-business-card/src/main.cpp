@@ -10,7 +10,7 @@ const char* TAGLINE="Praemonitus, Praemunitus"; const char* WEBSITE="https://tec
 const char* PHONE="+917439008165"; const char* LINKEDIN="https://www.linkedin.com/in/technostics-group";
 const char* COMPANY_IG="https://instagram.com/the_technostic"; const char* FOUNDER_IG="https://instagram.com/jker24256";
 enum Screen:uint8_t{BOOT,WELCOME,MENU,QR_WEB,QR_VCARD,CONTACT,WEBSITE,LINKEDIN,INSTAGRAM,ABOUT,TAGLINE,EXIT};
-Screen screen=BOOT; uint32_t bootAt=0; bool needsRedraw=true;
+Screen screen=BOOT; uint32_t bootAt=0; bool needsRedraw=true; int menuIndex=0;
 
 void text(const char*s,int32_t x,int32_t y,uint16_t c=WHITE,uint8_t sz=1){M5Cardputer.Display.setTextColor(c);M5Cardputer.Display.setTextSize(sz);M5Cardputer.Display.drawString(s,x,y);}
 void center(const char*s,int32_t y,uint16_t c=WHITE,uint8_t sz=1){M5Cardputer.Display.setTextColor(c);M5Cardputer.Display.setTextSize(sz);int32_t w=M5Cardputer.Display.textWidth(s);M5Cardputer.Display.drawString(s,(240-w)/2,y);}
@@ -31,7 +31,7 @@ void qr(const char*payload,const char*title,const char*caption){
 String vcard(){return String("BEGIN:VCARD\nVERSION:3.0\nFN:")+NAME+"\nORG:"+COMPANY+"\nTITLE:"+ROLE+"\nTEL:"+PHONE+"\nEMAIL:"+EMAIL+"\nURL:"+WEBSITE+"\nEND:VCARD";}
 void drawBoot(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(104,12);center(COMPANY,77,GOLD);center(TAGLINE,92,MUTED);M5Cardputer.Display.drawRoundRect(48,111,144,5,2,LINE);int p=min(144,(int)((millis()-bootAt)/7));M5Cardputer.Display.fillRoundRect(48,111,p,5,2,GOLD);center("INITIALIZING...",119,MUTED);}
 void drawWelcome(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(104,10);center(COMPANY,77,GOLD);center(NAME,91);center(ROLE,103,MUTED);center("[ ENTER ]",119,GOLD);}
-void drawMenu(){header("DIGITAL BUSINESS CARD");techCorners();const char*items[]={"QR CODE  / WEBSITE","vCARD  / SAVE CONTACT","CONTACT DETAILS","WEBSITE","LINKEDIN","INSTAGRAM","ABOUT"};const char keys[]={'Q','V','C','W','L','I','A'};for(int i=0;i<7;i++){int y=29+i*12;M5Cardputer.Display.drawRoundRect(12,y,216,10,2,i==0?GOLD2:LINE);text(String(keys[i]).c_str(),17,y+1,GOLD);text(items[i],30,y+1);}text("W/S Navigate",12,113,MUTED);text("ENTER Select",142,113,MUTED);footer("X  Back / Home");}
+void drawMenu(){header("DIGITAL BUSINESS CARD");techCorners();const char*items[]={"QR CODE  / WEBSITE","vCARD  / SAVE CONTACT","CONTACT DETAILS","WEBSITE","LINKEDIN","INSTAGRAM","ABOUT"};const char keys[]={'Q','V','C','W','L','I','A'};for(int i=0;i<7;i++){int y=29+i*12;M5Cardputer.Display.drawRoundRect(12,y,216,10,2,i==menuIndex?GOLD2:LINE);text(String(keys[i]).c_str(),17,y+1,GOLD);text(items[i],30,y+1,i==menuIndex?GOLD:WHITE);}text("↑/↓ Navigate",10,113,MUTED);text("ENTER Select",148,113,MUTED);footer("X  Back / Home");}
 void drawContact(){header("CONTACT DETAILS");techCorners();text(NAME,14,33,GOLD);text(ROLE,14,45,MUTED);text(COMPANY,14,57,WHITE);line(14,69,226,69);text("MAIL",15,76,GOLD2);text(EMAIL,55,76);text("CALL",15,89,GOLD2);text("+91 74390 08165",55,89);text("WEB",15,102,GOLD2);text("technosticsgroup.com",55,102);footer("V  vCard   X  Back");}
 void drawWebsite(){header("WEBSITE");techCorners();accentPattern();center(COMPANY,40,GOLD);center("technosticsgroup.com",57);M5Cardputer.Display.drawRoundRect(65,72,110,25,4,GOLD2);center("[ Q ]  SCAN QR CODE",80,GOLD);center("CONNECT • COLLABORATE • BUILD • SECURE",108,MUTED);footer("Q  QR   X  Back");}
 void drawLinkedIn(){header("LINKEDIN");techCorners();center(COMPANY,40,GOLD);center("LINKEDIN",57,WHITE,2);center("linkedin.com/in/technostics-group",78,MUTED);center("[ Q ]  SCAN PROFILE",101,GOLD);footer("Q  QR   X  Back");}
@@ -43,13 +43,14 @@ void render(){switch(screen){case BOOT:drawBoot();break;case WELCOME:drawWelcome
 void home(){screen=WELCOME;needsRedraw=true;}
 void handleKey(char k,bool enter){
   if(screen==BOOT)return;
-  if(screen==WELCOME&&enter){screen=MENU;needsRedraw=true;return;}
+  if(screen==WELCOME&&enter){screen=MENU;menuIndex=0;needsRedraw=true;return;}
   if(screen==EXIT&&enter){home();return;}
   if(k=='x'||k=='X'){if(screen==MENU||screen==WELCOME)home();else{screen=MENU;needsRedraw=true;}return;}
-  if(screen==MENU){switch(toupper((unsigned char)k)){case'Q':screen=QR_WEB;break;case'V':screen=QR_VCARD;break;case'C':screen=CONTACT;break;case'W':screen=WEBSITE;break;case'L':screen=LINKEDIN;break;case'I':screen=INSTAGRAM;break;case'A':screen=ABOUT;break;default:return;}needsRedraw=true;return;}
+  if(screen==MENU && k==0 && enter){const Screen targets[]={QR_WEB,QR_VCARD,CONTACT,WEBSITE,LINKEDIN,INSTAGRAM,ABOUT};screen=targets[menuIndex];needsRedraw=true;return;}
+  if(screen==MENU){if(k=='w'||k=='W'){menuIndex=(menuIndex+6)%7;needsRedraw=true;return;}if(k=='s'||k=='S'){menuIndex=(menuIndex+1)%7;needsRedraw=true;return;}switch(toupper((unsigned char)k)){case'Q':screen=QR_WEB;break;case'V':screen=QR_VCARD;break;case'C':screen=CONTACT;break;case'W':screen=WEBSITE;break;case'L':screen=LINKEDIN;break;case'I':screen=INSTAGRAM;break;case'A':screen=ABOUT;break;default:return;}needsRedraw=true;return;}
   if((screen==WEBSITE||screen==LINKEDIN||screen==INSTAGRAM)&&(k=='q'||k=='Q')){screen=QR_WEB;needsRedraw=true;return;}
   if(screen==CONTACT&&(k=='v'||k=='V')){screen=QR_VCARD;needsRedraw=true;}
 }
 }
 void setup(){auto cfg=M5.config();M5Cardputer.begin(cfg,true);M5Cardputer.Display.setRotation(1);M5Cardputer.Display.setTextFont(&fonts::Font2);M5Cardputer.Display.setTextDatum(top_left);TTG::bootAt=millis();TTG::needsRedraw=true;}
-void loop(){M5Cardputer.update();if(TTG::screen==TTG::BOOT&&millis()-TTG::bootAt>1800){TTG::screen=TTG::WELCOME;TTG::needsRedraw=true;}if(TTG::needsRedraw)TTG::render();if(M5Cardputer.Keyboard.isChange()&&M5Cardputer.Keyboard.isPressed()){auto st=M5Cardputer.Keyboard.keysState();if(st.enter)TTG::handleKey(0,true);for(auto c:st.word)TTG::handleKey(c,false);}delay(8);}
+void loop(){M5Cardputer.update();if(TTG::screen==TTG::BOOT&&millis()-TTG::bootAt>1800){TTG::screen=TTG::WELCOME;TTG::needsRedraw=true;}if(TTG::needsRedraw)TTG::render();if(M5Cardputer.Keyboard.isChange()&&M5Cardputer.Keyboard.isPressed()){auto st=M5Cardputer.Keyboard.keysState();if(st.enter)TTG::handleKey(0,true);if(st.esc)TTG::handleKey('x',false);if(st.up)TTG::handleKey('w',false);if(st.down)TTG::handleKey('s',false);for(auto c:st.word)TTG::handleKey(c,false);}delay(8);}
