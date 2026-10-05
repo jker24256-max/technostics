@@ -1,0 +1,2 @@
+The QR generator in this folder is derived from ricmoo/QRCode, which is MIT licensed.
+See https://github.com/ricmoo/QRCode for the upstream project and license text.
