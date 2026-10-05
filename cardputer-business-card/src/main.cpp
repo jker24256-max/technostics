@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include "M5Cardputer.h"
-#include "ttg_qrcode.h"
+#include "qrcode.h"
 #include "ttg_logo.h"
 
 namespace TTG {
@@ -19,7 +19,7 @@ void frame(int x=4,int y=4,int w=232,int h=127){M5Cardputer.Display.drawRoundRec
 void header(const char*t){M5Cardputer.Display.fillScreen(NAVY);frame();text("TTG",10,8,GOLD);text(t,34,8,WHITE);line(8,22,232,22,GOLD2);}
 void footer(const char*h){line(8,119,232,119,LINE);text(h,10,122,MUTED);}
 void techCorners(){line(7,30,25,30);line(7,30,7,48);line(215,30,233,30);line(233,30,233,48);line(7,105,25,105);line(7,105,7,87);line(215,105,233,105);line(233,105,233,87);}
-void drawLogo(int x,int y,uint16_t color=GOLD){for(int yy=0;yy<64;yy++)for(int xx=0;xx<64;xx++){uint8_t b=pgm_read_byte(&TTG_LOGO_MASK[(yy*64+xx)>>3]);if(b&(1<<(7-(xx&7))))M5Cardputer.Display.drawPixel(x+xx,y+yy,color);}}
+void drawLogo(int x,int y,uint16_t color=GOLD){for(int yy=0;yy<32;yy++)for(int xx=0;xx<32;xx++){uint8_t b=pgm_read_byte(&TTG_LOGO_MASK[(yy*32+xx)>>3]);if(b&(1<<(7-(xx&7))))M5Cardputer.Display.drawPixel(x+xx,y+yy,color);}}
 void accentPattern(){for(int i=0;i<5;i++){int x=10+i*18;line(x,27,x+10,27,GOLD2);line(x+10,27,x+15,32,GOLD2);line(225-i*18,105,215-i*18,105,GOLD2);}}
 void qr(const char*payload,const char*title,const char*caption){
   header(title);techCorners();QRCode code;uint8_t data[qrcode_getBufferSize(9)];
@@ -29,16 +29,16 @@ void qr(const char*payload,const char*title,const char*caption){
   center(caption,108,GOLD);footer("X  Back");
 }
 String vcard(){return String("BEGIN:VCARD\nVERSION:3.0\nFN:")+NAME+"\nORG:"+COMPANY+"\nTITLE:"+ROLE+"\nTEL:"+PHONE+"\nEMAIL:"+EMAIL+"\nURL:"+WEBSITE+"\nEND:VCARD";}
-void drawBoot(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(88,8);center(COMPANY,77,GOLD);center(TAGLINE,92,MUTED);M5Cardputer.Display.drawRoundRect(48,111,144,5,2,LINE);int p=min(144,(int)((millis()-bootAt)/7));M5Cardputer.Display.fillRoundRect(48,111,p,5,2,GOLD);center("INITIALIZING...",119,MUTED);}
-void drawWelcome(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(88,7);center(COMPANY,77,GOLD);center(NAME,91);center(ROLE,103,MUTED);center("[ ENTER ]",119,GOLD);}
+void drawBoot(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(104,12);center(COMPANY,77,GOLD);center(TAGLINE,92,MUTED);M5Cardputer.Display.drawRoundRect(48,111,144,5,2,LINE);int p=min(144,(int)((millis()-bootAt)/7));M5Cardputer.Display.fillRoundRect(48,111,p,5,2,GOLD);center("INITIALIZING...",119,MUTED);}
+void drawWelcome(){M5Cardputer.Display.fillScreen(NAVY);techCorners();accentPattern();drawLogo(104,10);center(COMPANY,77,GOLD);center(NAME,91);center(ROLE,103,MUTED);center("[ ENTER ]",119,GOLD);}
 void drawMenu(){header("DIGITAL BUSINESS CARD");techCorners();const char*items[]={"QR CODE  / WEBSITE","vCARD  / SAVE CONTACT","CONTACT DETAILS","WEBSITE","LINKEDIN","INSTAGRAM","ABOUT"};const char keys[]={'Q','V','C','W','L','I','A'};for(int i=0;i<7;i++){int y=29+i*12;M5Cardputer.Display.drawRoundRect(12,y,216,10,2,i==0?GOLD2:LINE);text(String(keys[i]).c_str(),17,y+1,GOLD);text(items[i],30,y+1);}text("W/S Navigate",12,113,MUTED);text("ENTER Select",142,113,MUTED);footer("X  Back / Home");}
 void drawContact(){header("CONTACT DETAILS");techCorners();text(NAME,14,33,GOLD);text(ROLE,14,45,MUTED);text(COMPANY,14,57,WHITE);line(14,69,226,69);text("MAIL",15,76,GOLD2);text(EMAIL,55,76);text("CALL",15,89,GOLD2);text("+91 74390 08165",55,89);text("WEB",15,102,GOLD2);text("technosticsgroup.com",55,102);footer("V  vCard   X  Back");}
 void drawWebsite(){header("WEBSITE");techCorners();accentPattern();center(COMPANY,40,GOLD);center("technosticsgroup.com",57);M5Cardputer.Display.drawRoundRect(65,72,110,25,4,GOLD2);center("[ Q ]  SCAN QR CODE",80,GOLD);center("CONNECT • COLLABORATE • BUILD • SECURE",108,MUTED);footer("Q  QR   X  Back");}
 void drawLinkedIn(){header("LINKEDIN");techCorners();center(COMPANY,40,GOLD);center("LINKEDIN",57,WHITE,2);center("linkedin.com/in/technostics-group",78,MUTED);center("[ Q ]  SCAN PROFILE",101,GOLD);footer("Q  QR   X  Back");}
 void drawInstagram(){header("INSTAGRAM");techCorners();text("COMPANY",16,34,GOLD);text("@the_technostic",16,50);text("FOUNDER",16,69,GOLD);text("@jker24256",16,85);line(16,95,224,95);center("[ Q ]  SHOW COMPANY QR",104,GOLD);footer("Q  QR   X  Back");}
-void drawAbout(){header("ABOUT");techCorners();drawLogo(12,36);text(COMPANY,86,38,GOLD);text("TECHNOLOGY • CYBERSECURITY",86,53);text("INNOVATION • SECURE DIGITAL",86,67);text("INFRASTRUCTURE",86,81);text("FOUNDED & LED BY",86,95,MUTED);text(NAME,86,106);}
-void drawTagline(){M5Cardputer.Display.fillScreen(NAVY);frame();techCorners();drawLogo(88,13);center(TAGLINE,88,GOLD);center("FOREWARNED • FOREARMED",104,MUTED);footer("X  Back");}
-void drawExit(){M5Cardputer.Display.fillScreen(NAVY);frame();techCorners();drawLogo(88,14);center("THANK YOU",88,GOLD,2);center(TAGLINE,104,MUTED);footer("ENTER  Restart");}
+void drawAbout(){header("ABOUT");techCorners();drawLogo(16,40);text(COMPANY,86,38,GOLD);text("TECHNOLOGY • CYBERSECURITY",86,53);text("INNOVATION • SECURE DIGITAL",86,67);text("INFRASTRUCTURE",86,81);text("FOUNDED & LED BY",86,95,MUTED);text(NAME,86,106);}
+void drawTagline(){M5Cardputer.Display.fillScreen(NAVY);frame();techCorners();drawLogo(104,16);center(TAGLINE,88,GOLD);center("FOREWARNED • FOREARMED",104,MUTED);footer("X  Back");}
+void drawExit(){M5Cardputer.Display.fillScreen(NAVY);frame();techCorners();drawLogo(104,16);center("THANK YOU",88,GOLD,2);center(TAGLINE,104,MUTED);footer("ENTER  Restart");}
 void render(){switch(screen){case BOOT:drawBoot();break;case WELCOME:drawWelcome();break;case MENU:drawMenu();break;case QR_WEB:qr(WEBSITE,"WEBSITE QR","technosticsgroup.com");break;case QR_VCARD:{String v=vcard();qr(v.c_str(),"vCARD","SCAN TO SAVE CONTACT");}break;case CONTACT:drawContact();break;case WEBSITE:drawWebsite();break;case LINKEDIN:drawLinkedIn();break;case INSTAGRAM:drawInstagram();break;case ABOUT:drawAbout();break;case TAGLINE:drawTagline();break;case EXIT:drawExit();break;}needsRedraw=false;}
 void home(){screen=WELCOME;needsRedraw=true;}
 void handleKey(char k,bool enter){
